@@ -1,2 +1,2 @@
 # Hive-school-projects
-finished projects
+Finished Hive school projects
