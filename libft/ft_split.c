@@ -6,7 +6,7 @@
 /*   By: ssalorin <ssalorin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 09:43:59 by ssalorin          #+#    #+#             */
-/*   Updated: 2024/05/09 16:36:05 by ssalorin         ###   ########.fr       */
+/*   Updated: 2024/12/30 15:17:27 by ssalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	ft_copy(char **strings, char const *s, int len, int x)
 	strings[x][i] = '\0';
 }
 
-static void	*ft_free(char **strings, int x)
+static void	*ft_free_array(char **strings, int x)
 {
 	while (x >= 0)
 	{
@@ -72,7 +72,7 @@ static char	**ft_mal(char **strings, char const *s, char c, int i)
 		{
 			strings[x] = (char *)malloc(sizeof(char) * (len + 1));
 			if (!strings[x])
-				return (ft_free(strings, x));
+				return (ft_free_array(strings, x));
 			ft_copy(strings, &s[i], len, x);
 			x++;
 			i = i + len;
@@ -91,8 +91,10 @@ char	**ft_split(char const *s, char c)
 	int		samount;
 
 	i = 0;
-	samount = ft_stra(s, c);
 	if (!s)
+		return (NULL);
+	samount = ft_stra(s, c);
+	if (samount == 0)
 		return (NULL);
 	strings = (char **)malloc(sizeof(char *) * (samount + 1));
 	if (!strings)
