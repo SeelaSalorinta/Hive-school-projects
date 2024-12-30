@@ -6,7 +6,7 @@
 /*   By: ssalorin <ssalorin@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 09:43:59 by ssalorin          #+#    #+#             */
-/*   Updated: 2024/10/04 14:08:07 by ssalorin         ###   ########.fr       */
+/*   Updated: 2024/12/30 15:17:27 by ssalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,10 @@ char	**ft_split(char const *s, char c)
 	int		samount;
 
 	i = 0;
-	samount = ft_stra(s, c);
 	if (!s)
+		return (NULL);
+	samount = ft_stra(s, c);
+	if (samount == 0)
 		return (NULL);
 	strings = (char **)malloc(sizeof(char *) * (samount + 1));
 	if (!strings)
