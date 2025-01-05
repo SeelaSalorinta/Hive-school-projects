@@ -69,6 +69,11 @@ static void	check_if_ber(char *file)
 	int	i;
 
 	i = (int)ft_strlen(file);
+	if (i < 4)
+	{
+		ft_putstr_fd("Error: Invalid file\n", 2);
+		exit(1);
+	}
 	if (file[i - 4] != '.' || file[i - 3] != 'b'
 		|| file[i - 2] != 'e' || file[i - 1] != 'r')
 	{
