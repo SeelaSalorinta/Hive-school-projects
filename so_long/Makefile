@@ -42,9 +42,6 @@ $(MINILIBX_DIR)/libmlx.a:
 $(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $(INCLUDES) $(OBJS) $(LIBFT) $(MINILIBX) $(LIBS) -o $(NAME)
 
-%.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-
 clean:
 	rm -f $(OBJS)
 	@make -C $(LIBFT_DIR) clean
