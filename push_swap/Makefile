@@ -26,8 +26,6 @@ CFLAGS = -Wall -Wextra -Werror
 
 LIBFT = $(LIBFTDIR)/libft.a
 
-INCLUDES = -I. -I $(LIBFTDIR)
-
 all: $(NAME)
 
 $(LIBFT):
@@ -35,9 +33,6 @@ $(LIBFT):
 
 $(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
-
-%.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
