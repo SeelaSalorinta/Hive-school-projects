@@ -6,6 +6,10 @@ CFLAGS = -Wall -Wextra -Werror
 
 LIBFT_DIR = libft
 
+LIBFT_SRCS = $(wildcard $(LIBFT_DIR)/*.c)
+
+LIBFT_OBJS = $(LIBFT_SRCS:.c=.o)
+
 LIBFT = $(LIBFT_DIR)/libft.a
 
 MINILIBX_DIR = minilibx-linux
@@ -30,7 +34,7 @@ OBJS = $(SRCS:.c=.o)
 
 all: $(MINILIBX) $(LIBFT) $(NAME)
 
-$(LIBFT):
+$(LIBFT): $(LIBFT_SRCS)
 	@make -C $(LIBFT_DIR)
 
 $(MINILIBX_DIR)/libmlx.a:
@@ -41,6 +45,9 @@ $(MINILIBX_DIR)/libmlx.a:
 
 $(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $(INCLUDES) $(OBJS) $(LIBFT) $(MINILIBX) $(LIBS) -o $(NAME)
+
+%.o: %.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
