@@ -17,7 +17,6 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <sys/wait.h>
-# include <stdio.h>
 # include "libft/libft.h"
 
 void	ft_command(char **envp, char *cmd);
