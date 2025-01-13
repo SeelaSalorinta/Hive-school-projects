@@ -8,7 +8,7 @@ OBJS = $(SRCS:.c=.o)
 
 LIBFTDIR = libft
 
-CC = gcc
+CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
